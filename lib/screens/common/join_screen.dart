@@ -21,7 +21,7 @@ class JoinScreen extends StatefulWidget {
 }
 
 class _JoinScreenState extends State<JoinScreen> {
-  String _token = "";
+  String _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiJjZTZmYzNmMC1mNjQ4LTRkYTctYmNkYy1mNDk4ODkyNDRiZDMiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTcwNjM2NDMzMCwiZXhwIjoxODY0MTUyMzMwfQ.zZaO77Wxgyz47bxKIqC6M1nwc1ZPXmum3bOXpNasR68";
   // Control Status
   bool isMicOn = true;
   bool isCameraOn = true;
@@ -40,10 +40,10 @@ class _JoinScreenState extends State<JoinScreen> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final token = await fetchToken(context);
-      setState(() => _token = token);
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //   final token = await fetchToken(context);
+    //   setState(() => _token = token);
+    // });
   }
 
   @override

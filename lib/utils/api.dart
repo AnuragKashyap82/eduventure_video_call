@@ -1,41 +1,8 @@
 import 'dart:convert';
-
-import 'package:flutter/widgets.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:eduventure_video_call/utils/toast.dart';
-
-Future<String> fetchToken(BuildContext context) async {
-  if (!dotenv.isInitialized) {
-    // Load Environment variables
-    await dotenv.load(fileName: ".env");
-  }
-  final String? _AUTH_URL = dotenv.env['AUTH_URL'];
-  String? _AUTH_TOKEN = dotenv.env['AUTH_TOKEN'];
-
-  if ((_AUTH_TOKEN?.isEmpty ?? true) && (_AUTH_URL?.isEmpty ?? true)) {
-    showSnackBar(
-         "Please set the environment variables",  context);
-    throw Exception("Either AUTH_TOKEN or AUTH_URL is not set in .env file");
-  }
-
-  if ((_AUTH_TOKEN?.isNotEmpty ?? false) && (_AUTH_URL?.isNotEmpty ?? false)) {
-    showSnackBar(
-         "Please set only one environment variable", context);
-    throw Exception("Either AUTH_TOKEN or AUTH_URL can be set in .env file");
-  }
-
-  if (_AUTH_URL?.isNotEmpty ?? false) {
-    final Uri getTokenUrl = Uri.parse('$_AUTH_URL/get-token');
-    final http.Response tokenResponse = await http.get(getTokenUrl);
-    _AUTH_TOKEN = json.decode(tokenResponse.body)['token'];
-  }
-
-  return _AUTH_TOKEN ?? "";
-}
 
 Future<String> createMeeting(String _token) async {
-  final String? _VIDEOSDK_API_ENDPOINT = dotenv.env['VIDEOSDK_API_ENDPOINT'];
+  final String? _VIDEOSDK_API_ENDPOINT = "https://api.videosdk.live/v2";
 
   final Uri getMeetingIdUrl = Uri.parse('$_VIDEOSDK_API_ENDPOINT/rooms');
   final http.Response meetingIdResponse =
@@ -51,7 +18,7 @@ Future<String> createMeeting(String _token) async {
 }
 
 Future<bool> validateMeeting(String token, String meetingId) async {
-  final String? _VIDEOSDK_API_ENDPOINT = dotenv.env['VIDEOSDK_API_ENDPOINT'];
+  final String? _VIDEOSDK_API_ENDPOINT = "https://api.videosdk.live/v2";
 
   final Uri validateMeetingUrl =
       Uri.parse('$_VIDEOSDK_API_ENDPOINT/rooms/validate/$meetingId');
@@ -68,7 +35,7 @@ Future<bool> validateMeeting(String token, String meetingId) async {
 }
 
 Future<dynamic> fetchSession(String token, String meetingId) async {
-  final String? _VIDEOSDK_API_ENDPOINT = dotenv.env['VIDEOSDK_API_ENDPOINT'];
+  final String? _VIDEOSDK_API_ENDPOINT = "https://api.videosdk.live/v2";
 
   final Uri getMeetingIdUrl =
       Uri.parse('$_VIDEOSDK_API_ENDPOINT/sessions?roomId=$meetingId');

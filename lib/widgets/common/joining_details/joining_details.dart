@@ -31,7 +31,7 @@ class _JoiningDetailsState extends State<JoiningDetails> {
           padding: const EdgeInsets.symmetric(horizontal: 44.0),
           child: Container(
             height: 48,
-            width: MediaQuery.of(context).size.width,
+           constraints: BoxConstraints(maxWidth: 640),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12), color: gray02),
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
