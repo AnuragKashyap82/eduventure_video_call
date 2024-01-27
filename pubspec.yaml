@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
   videosdk: 1.1.7
   http: ^1.1.0
-  flutter_dotenv: ^5.0.2
   date_time_format: ^2.0.1
   lottie: ^2.2.0
   responsive_framework: ^1.0.0
@@ -67,7 +66,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

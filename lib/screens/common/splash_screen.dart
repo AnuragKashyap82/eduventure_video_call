@@ -15,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
     Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
@@ -51,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(200),
-                      child: Image.asset("assets/logo.png", ))
+                      child: Image.asset("assets/logo.png"))
               ),
               SizedBox(
                 height: 26,
