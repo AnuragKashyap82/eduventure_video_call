@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018800110769",
+    "project_id": "eduventurevideocall",
+    "storage_bucket": "eduventurevideocall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018800110769:android:f16d9fdee82ce043fe7690",
+        "android_client_info": {
+          "package_name": "com.example.eduventure_video_call"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe-TOae5wncaxWCBl7pcAd12eWQ54L8TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

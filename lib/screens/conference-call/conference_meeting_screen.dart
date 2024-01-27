@@ -139,7 +139,7 @@ class _ConfereneceMeetingScreenState extends State<ConfereneceMeetingScreen> {
                                     isCamEnabled: videoStream != null,
                                     isScreenShareEnabled: shareStream != null,
                                     recordingState: recordingState,
-
+                                    // Called when Call End button is pressed
                                     onCallEndButtonPressed: () {
                                       meeting.end();
                                     },

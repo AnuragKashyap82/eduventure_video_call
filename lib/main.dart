@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,25 +8,16 @@ import 'package:responsive_framework/breakpoint.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
 // import 'package:window_manager/window_manager.dart';
 import 'constants/colors.dart';
+import 'firebase_options.dart';
 import 'navigator_key.dart';
 import 'screens/common/splash_screen.dart';
 
 void main() async {
   // Run Flutter App
   WidgetsFlutterBinding.ensureInitialized();
-  // if (!kIsWeb && (Platform.isMacOS || Platform.isWindows)) {
-  //   await windowManager.ensureInitialized();
-  //   WindowOptions windowOptions = const WindowOptions(
-  //     size: Size(900, 700),
-  //   );
-  //   windowManager.waitUntilReadyToShow(windowOptions, () async {
-  //     await windowManager.show();
-  //     await windowManager.focus();
-  //   });
-  //
-  //   windowManager.setResizable(false);
-  //   windowManager.setMaximizable(false);
-  // }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
